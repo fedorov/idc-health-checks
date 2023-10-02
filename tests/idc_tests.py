@@ -38,7 +38,7 @@ class MyTest(unittest.TestCase):
             print('Request failed: {}'.format(response.reason))
 
         # Print the collections JSON text
-        pretty(response)
+        #pretty(response)
 
     def test_dev_api(self):
         response = requests.get('{}/collections'.format(idc_dev_api_preamble))
@@ -48,7 +48,7 @@ class MyTest(unittest.TestCase):
             print('Request failed: {}'.format(response.reason))
         
         # Print the collections JSON text
-        pretty(response)
+        #pretty(response)
 
     def is_portal_live(self):
         for key,portal_url in portal_urls.items():
