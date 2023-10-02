@@ -3,9 +3,14 @@ from google.cloud import bigquery
 import os
 
 bq_queries = {
-"check_if_table_exists": "SELECT 1 FROM `biquery-public-data.idc_current.dicom_all` LIMIT 1",
+"check_if_table_exists": """
+    SELECT PatientID 
+    FROM `bigquery-public-data.idc_current.dicom_all` 
+    LIMIT 1
+""",
 
 }
+
 
 
 class MyTest(unittest.TestCase):
