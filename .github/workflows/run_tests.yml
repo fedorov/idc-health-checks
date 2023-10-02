@@ -26,6 +26,8 @@ jobs:
       uses: google-github-actions/auth@v1
       with:
         credentials_json: '${{ secrets.BQ_SERVICE_ACCOUNT}}'
-    - name: Run github etl script        
+    - name: Run BQ test queries
+      env:
+        PROJECT_ID: ${{ secrets.PROJECT_ID }}
       run: |
         python -m unittest tests/idc_tests.py
