@@ -1,0 +1,29 @@
+name: IDC Health Monitor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 30 7 * * *
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  run-tests:
+   runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests google-cloud-bigquery
+        
+    - name: Run tests
+      uses: google-github-actions/auth@v1
+      with:
+        credentials_json: '${{ secrets.BQ_SERVICE_ACCOUNT}}'
+    - name: Run github etl script        
+      run: |
+        python -m unittest *
