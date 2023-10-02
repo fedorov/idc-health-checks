@@ -53,7 +53,7 @@ class MyTest(unittest.TestCase):
         # Print the collections JSON text
         #pretty(response)
 
-    def is_portal_live(self):
+    def test_is_portal_live(self):
         print("Testing portal")
         for key,portal_url in portal_urls.items():
             response = requests.head(portal_url)
