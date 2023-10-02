@@ -28,4 +28,4 @@ jobs:
         credentials_json: '${{ secrets.BQ_SERVICE_ACCOUNT}}'
     - name: Run github etl script        
       run: |
-        python -m unittest *
+        python -m unittest tests/idc_tests.py

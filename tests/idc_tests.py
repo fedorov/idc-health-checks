@@ -13,7 +13,7 @@ class MyTest(unittest.TestCase):
         for query_name,query in bq_queries.items():
             print("Executing query: " + query_name + " with query: " + query + " ...")
             client = bigquery.Client()
-            client.query(bq_queries[query]).result()
+            client.query(bq_queries[query_name]).result()
 
 if __name__ == '__main__':
     unittest.main()
