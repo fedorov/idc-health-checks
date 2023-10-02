@@ -31,6 +31,7 @@ class MyTest(unittest.TestCase):
             client.query(bq_queries[query_name]).result()
 
     def test_prod_api(self):
+        priny("Testing prod api")
         response = requests.get('{}/collections'.format(idc_api_preamble))
         # Check that there wasn't an error with the request
         if response.status_code != 200:
@@ -41,6 +42,7 @@ class MyTest(unittest.TestCase):
         #pretty(response)
 
     def test_dev_api(self):
+        priny("Testing dev api")
         response = requests.get('{}/collections'.format(idc_dev_api_preamble))
         # Check that there wasn't an error with the request
         if response.status_code != 200:
@@ -51,6 +53,7 @@ class MyTest(unittest.TestCase):
         #pretty(response)
 
     def is_portal_live(self):
+        print("Testing portal")
         for key,portal_url in portal_urls.items():
             response = requests.head(portal_url)
             if response.status_code != 200:
