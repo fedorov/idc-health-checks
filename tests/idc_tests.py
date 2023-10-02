@@ -24,6 +24,7 @@ def pretty(response):
 
 class MyTest(unittest.TestCase):
     def test_bq_queries(self):
+        print("Testing bq queries")
         # iterate over all queries in bq_queries dictionary and execute each query
         for query_name,query in bq_queries.items():
             print("Executing query: " + query_name + " with query: " + query + " ...")
@@ -31,7 +32,7 @@ class MyTest(unittest.TestCase):
             client.query(bq_queries[query_name]).result()
 
     def test_prod_api(self):
-        priny("Testing prod api")
+        print("Testing prod api")
         response = requests.get('{}/collections'.format(idc_api_preamble))
         # Check that there wasn't an error with the request
         if response.status_code != 200:
@@ -42,7 +43,7 @@ class MyTest(unittest.TestCase):
         #pretty(response)
 
     def test_dev_api(self):
-        priny("Testing dev api")
+        print("Testing dev api")
         response = requests.get('{}/collections'.format(idc_dev_api_preamble))
         # Check that there wasn't an error with the request
         if response.status_code != 200:
